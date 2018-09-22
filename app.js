@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // DB Config
-const uri = require('./config/keys').mongoURI;
+const uri = require('./git config/keys').mongoURI;
 const options = {
   useNewUrlParser: true
 };
