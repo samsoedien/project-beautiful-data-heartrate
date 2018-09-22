@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "set PORT=4000 && node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "set PORT=4000 && nodemon server.js --ignore client",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Samsoedien",
   "license": "MIT",
