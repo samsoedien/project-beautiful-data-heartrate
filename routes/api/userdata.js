@@ -10,7 +10,7 @@ const validateUserdataInput = require('../../validation/userdata');
 const User = require('../../models/User')
 
 // GET route api/userdata/test
-router.get('/test', (req, res, next) => res.json({ message: 'Heart data route works' }));
+router.get('/test', (req, res, next) => res.json({ message: 'User data route works' }));
 
 // GET route api/userdata
 router.get('/', (req, res, next) => {
