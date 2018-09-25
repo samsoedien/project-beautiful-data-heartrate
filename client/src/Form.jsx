@@ -7,14 +7,20 @@ export default class Form extends Component {
     this.state = {
       mood: '',
       user: '',
+      attitude: '',
       errors: {}
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onRadioChange = this.onRadioChange.bind(this);
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onRadioChange() {
+
   }
 
   onSubmit(e) {
@@ -22,7 +28,8 @@ export default class Form extends Component {
 
     const newUserdata = {
       mood: this.state.mood,
-      user: this.state.user
+      user: this.state.user,
+      attitude: this.state.attitude,
     };
     console.log(newUserdata);
 
@@ -78,6 +85,85 @@ export default class Form extends Component {
                     onChange={this.onChange}
                   />
                 </div>
+                <div className="form-group">
+                  <small className="form-text text-muted text-left">Happiness level</small>
+                  
+                  <div className="p-2">
+                    <div className="custom-control custom-radio custom-control-inline">
+                      <input 
+                        type="radio"
+                        name="attitude"
+                        value="agree" 
+                        checked="" 
+                        onChange={this.onChange} 
+                        className="custom-control-input"
+                        id="defaultInline1"
+                        //name="inlineDefaultRadiosExample" 
+                      />
+                      <label className="custom-control-label" forHtml="defaultInline1">Agree</label>
+                    </div>
+
+                    <div className="custom-control custom-radio custom-control-inline">
+                      <input 
+                        type="radio"
+                        name="attitude"
+                        value="agree" 
+                        checked="" 
+                        onChange={this.onChange}                  
+                        className="custom-control-input"
+                        id="defaultInline2"
+                        //name="inlineDefaultRadiosExample" 
+                      />
+                      <label className="custom-control-label" forHtml="defaultInline2">Agree little</label>
+                    </div>
+
+                    <div className="custom-control custom-radio custom-control-inline">
+                      <input 
+                        type="radio"
+                        name="attitude"
+                        value="agree"    
+                        onChange={this.onChange}                                      
+                        className="custom-control-input"
+                        id="defaultInline3"
+                        //name="inlineDefaultRadiosExample" 
+                      />
+                      <label className="custom-control-label" forHtml="defaultInline3">Neutral</label>
+                    </div>      
+
+                    <div className="custom-control custom-radio custom-control-inline">
+                      <input 
+                        type="radio"
+                        name="attitude"
+                        value="agree"    
+                        onChange={this.onChange}                                 
+                        className="custom-control-input"
+                        id="defaultInline3"
+                        //name="inlineDefaultRadiosExample" 
+                      />
+                      <label className="custom-control-label" forHtml="defaultInline3">Disagree little</label>
+                    </div>           
+                    
+                    <div className="custom-control custom-radio custom-control-inline">
+                      <input 
+                        type="radio"
+                        name="attitude"
+                        value="agree"
+                        onChange={this.onChange}                  
+                        className="custom-control-input"
+                        id="defaultInline3"
+                        //name="inlineDefaultRadiosExample" 
+                      />
+                      <label className="custom-control-label" forHtml="defaultInline3">Disgree</label>
+                    </div>          
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="formControlRange">Example Range input</label>
+                    <input type="range" className="form-control-range custom-range" min="0" max="100" id="formControlRange" />
+                  </div>
+
+                </div>
+
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
