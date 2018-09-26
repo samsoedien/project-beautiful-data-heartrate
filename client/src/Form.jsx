@@ -159,7 +159,7 @@ export default class Form extends Component {
                   
                   <div className="form-group">
                     <label htmlFor="formControlRange">Example Range input</label>
-                    <input type="range" className="form-control-range custom-range" min="0" max="100" id="formControlRange" />
+                    <input type="range" className="form-control-range custom-range" min="0" max="5" id="formControlRange" />
                   </div>
 
                 </div>

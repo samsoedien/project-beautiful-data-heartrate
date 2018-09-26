@@ -1,6 +1,10 @@
 {
   "name": "project-beautiful-data",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.4.1",
+    "npm": "8.11.4"
+  },
   "description": "REST API Stress Data",
   "main": "server.js",
   "scripts": {
