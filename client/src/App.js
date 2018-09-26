@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-import Home from './Home';
-import Navbar from './Navbar';
-import Form from './Form';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import Form from './components/Form';
+import Visualisation from './components/Visualisation';
 // import LineChart from './LineChart';
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
           <Navbar />
           <Route exact path="/" component={Home} />
           <Route exact path="/user-form" component={Form} />
-          <Route exact path="/visualisation" component={Form} />
+          <Route exact path="/visualisation" component={Visualisation} />
         </div>
       </Router>
     );

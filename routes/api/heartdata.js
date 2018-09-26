@@ -25,10 +25,10 @@ router.get('/', (req, res, next) => {
 
 // POST route api/heartrate
 router.post('/', (req, res, next) => {
-  const { errors, isValid } = validateHeartdataInput(req.body);
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // const { errors, isValid } = validateHeartdataInput(req.body);
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
 
   const newHeartdata = new Heart({
     _id: new mongoose.Types.ObjectId(),

@@ -32,8 +32,8 @@ router.post('/', (req, res, next) => {
 
   const newUserdata = new User({
     _id: new mongoose.Types.ObjectId(),
+    emotion: req.body.emotion,
     mood: req.body.mood,
-    user: req.body.user,
   });
   newUserdata.save().then(userdata => res.status(201).json(userdata));
 });

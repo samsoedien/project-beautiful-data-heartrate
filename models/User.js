@@ -3,13 +3,12 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const UserSchema = new Schema({
-  mood: {
+  emotion: {
     type: String,
     required: true
   },
-  user: {
+  mood: {
     type: String,
-    required: true
   },
   date: {
     type: Date,
