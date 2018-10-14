@@ -24,15 +24,14 @@ export default class Form extends Component {
     e.preventDefault();
 
     const newUserdata = {
-      mood: this.state.mood,
+      emotion: this.state.emotion,
       activity: this.state.activity,
-      experience: this.state.experience,
     };
     console.log(newUserdata);
 
     // axios post request
     axios
-      .post('/api/userdata', newUserdata)
+      .post('/api/user/userdata', newUserdata)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   }
@@ -67,9 +66,9 @@ export default class Form extends Component {
                   <label className="text-left">Emotion</label>
                   <select
                     className="form-control form-control-lg"
-                    placeholder="Mood"
-                    name="mood"
-                    value={this.state.mood}
+                    placeholder="Emotion"
+                    name="emotion"
+                    value={this.state.emotion}
                     onChange={this.onChange}
                     options={options}
                   >
@@ -90,24 +89,24 @@ export default class Form extends Component {
                   <small className="form-text text-muted text-left">Annotate what your activity was to this moment.</small>
 
                 </div>
-                  
-                  <div className="form-group">
-                    <label forhtml="formControlRange">Experience</label>
-                    <div>
-                      <span className="float-left text-danger">Negative</span>
-                      <span className="float-right text-success">Positive</span>
-                    </div>
-                    <input 
-                      type="range" 
-                      name="experience"
-                      value={this.state.experience}
-                      onChange={this.onChange}
-                      className="form-control-range custom-range" 
-                      min="0" 
-                      max="200" 
-                      id="formControlRange" />
-                    <small className="form-text text-muted text-left">Set a scale how positive this stressful this experience was to you.</small>
+
+                <div className="form-group">
+                  <label forhtml="formControlRange">Experience</label>
+                  <div>
+                    <span className="float-left text-danger">Negative</span>
+                    <span className="float-right text-success">Positive</span>
                   </div>
+                  <input
+                    type="range"
+                    name="experience"
+                    value={this.state.experience}
+                    onChange={this.onChange}
+                    className="form-control-range custom-range"
+                    min="0"
+                    max="200"
+                    id="formControlRange" />
+                  <small className="form-text text-muted text-left">Set a scale how positive this stressful this experience was to you.</small>
+                </div>
 
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>

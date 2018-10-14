@@ -35,8 +35,40 @@ router.post('/', (req, res, next) => {
     emotion: req.body.emotion,
     mood: req.body.mood,
   });
+
   newUserdata.save().then(userdata => res.status(201).json(userdata));
 });
 
+router.post('/userdata', (req, res, next) => {
+  const { errors, isValid } = validateUserdataInput(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  User.findOne({ user: req.user.id }).then(user => {
+    const newUserData = {
+      emotion: req.body.emotion,
+      activity: req.body.activity
+    };
+
+    user.userData.unshift(newUserData);
+    user.save().then(user => res.json(user));
+  });
+
+});
+
+router.post('/heartdata', (req, res, next) => {
+  const { errors, isValid } = validateUserdataInput(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+  const newHeartData = {
+    bmp: req.body.bpm,
+    ibi: req.body.ibi,
+  };
+
+  user.heartRate.unshift(newHeartData);
+  user.save().then(user => res.json(user));
+});
 
 module.exports = router;
