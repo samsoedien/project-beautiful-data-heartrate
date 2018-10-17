@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const heartdata = require("./routes/api/heartdata");
-const user = require("./routes/api/user");
+const users = require("./routes/api/users");
 
 // Init app
 const app = express();
@@ -47,7 +47,7 @@ mongoose.Promise = global.Promise;
 
 // Use Routes
 app.use("/api/heartdata", heartdata);
-app.use("/api/user", user);
+app.use("/api/users", users);
 
 // Morgan setup
 app.use((req, res, next) => {

@@ -1,36 +1,21 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create Schema
 const UserSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  heartRate: [
+  bpm: {
+    type: Number,
+    required: true
+  },
+  stressdata: [
     {
       bmp: {
         type: Number,
         required: true
       },
       ibi: {
-        type: Number,
-        required: true
-      },
-      date: {
-        type: Date,
-        default: Date.now
-      }
-    }
-  ],
-  userData: [
-    {
-      emotion: {
-        type: String,
-        required: true
-      },
-      mood: {
-        type: String
-      },
-      annotation: {
-        type: String
+        type: Number
       },
       date: {
         type: Date,
@@ -40,4 +25,4 @@ const UserSchema = new Schema({
   ]
 });
 
-module.exports = User = mongoose.model('User', UserSchema);
+module.exports = User = mongoose.model("User", UserSchema);

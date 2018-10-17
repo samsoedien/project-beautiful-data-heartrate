@@ -1,13 +1,13 @@
-const Validator = require('validator');
-const isEmpty = require('./is-empty');
+const Validator = require("validator");
+const isEmpty = require("./is-empty");
 
 module.exports = function validateRecipeInput(data) {
   let errors = {};
 
-  data.emotion = !isEmpty(data.emotion) ? data.emotion : '';
+  data.bpm = !isEmpty(data.bpm) ? data.bpm : "";
 
-  if (Validator.isEmpty(data.emotion)) {
-    errors.emotion = 'Emotion is required';
+  if (Validator.isEmpty(data.bpm)) {
+    errors.bpm = "BPM is required";
   }
 
   return {
