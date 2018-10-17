@@ -12,7 +12,20 @@ const UserSchema = new Schema({
   weatherdata: [
     {
       temperature: {
-        type: Number
+        type: Number,
+        required: true
+      },
+      humidity: {
+        type: Number,
+        required: true
+      },
+      lightDensity: {
+        type: Number,
+        required: true
+      },
+      sound: {
+        type: Number,
+        required: true
       },
       timestamp: {
         type: Date,
@@ -43,7 +56,8 @@ const UserSchema = new Schema({
   stressdata: [
     {
       emotion: {
-        type: String
+        type: String,
+        required: true
       },
       experience: {
         type: Number

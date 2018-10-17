@@ -47,16 +47,19 @@ router.post("/", (req, res, next) => {
 });
 
 // POST route api/weatherdata
-router.post("/:id/weatherdata", (req, res, next) => {
+router.post("/:userId/weatherdata", (req, res, next) => {
   const { errors, isValid } = validateUserdataInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  User.findById(req.params.id)
+  User.findOne({ userId: req.params.userId })
     .then(user => {
       const newWeatherdata = {
-        temperature: req.body.temperature
+        temperature: req.body.temperature,
+        humidity: req.body.humidity,
+        lightDensity: req.body.lightDensity,
+        sound: req.body.sound
       };
       user.weatherdata.unshift(newWeatherdata);
       user.save().then(user => res.status(201).json(user));
@@ -67,13 +70,13 @@ router.post("/:id/weatherdata", (req, res, next) => {
 });
 
 // POST route api/drowsinessdata
-router.post("/:id/drowsinessdata", (req, res, next) => {
+router.post("/:userId/drowsinessdata", (req, res, next) => {
   const { errors, isValid } = validateUserdataInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  User.findById(req.params.id)
+  User.findOne({ userId: req.params.userId })
     .then(user => {
       const newDrowsinessdata = {
         correctAnswers: req.body.correctAnswers,
@@ -89,13 +92,13 @@ router.post("/:id/drowsinessdata", (req, res, next) => {
 });
 
 // POST route api/stressdata
-router.post("/:id/stressdata", (req, res, next) => {
+router.post("/:userId//stressdata", (req, res, next) => {
   const { errors, isValid } = validateUserdataInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  User.findById(req.params.id)
+  User.findOne({ userId: req.params.userId })
     .then(user => {
       const newStressdata = {
         emotion: req.body.emotion,
@@ -111,13 +114,13 @@ router.post("/:id/stressdata", (req, res, next) => {
 });
 
 // POST route api/heartdata
-router.post("/:id/heartdata", (req, res, next) => {
+router.post("/:userId/heartdata", (req, res, next) => {
   const { errors, isValid } = validateUserdataInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  User.findById(req.params.id)
+  User.findOne({ userId: req.params.userId })
     .then(user => {
       const newHeartdata = {
         bpm: req.body.bpm
