@@ -37,13 +37,14 @@ router.get("/:id", (req, res, next) => {
     );
 });
 
-// // POST route api/users
-// router.post("/", (req, res, next) => {
-//   const newUser = new User({
-//     _id: new mongoose.Types.ObjectId()
-//   });
-//   newUser.save().then(user => res.status(201).json(user)); // added 201 status
-// });
+// POST route api/users
+router.post("/", (req, res, next) => {
+  const newUser = new User({
+    _id: new mongoose.Types.ObjectId(),
+    userId: req.body.userId
+  });
+  newUser.save().then(user => res.status(201).json(user)); // added 201 status
+});
 
 // POST route api/weatherdata
 router.post("/:id/weatherdata", (req, res, next) => {
@@ -53,12 +54,12 @@ router.post("/:id/weatherdata", (req, res, next) => {
   }
 
   User.findById(req.params.id)
-    .then(result => {
+    .then(user => {
       const newWeatherdata = {
         temperature: req.body.temperature
       };
-      result.weatherdata.unshift(newWeatherdata);
-      result.save().then(user => res.status(201).json(user));
+      user.weatherdata.unshift(newWeatherdata);
+      user.save().then(user => res.status(201).json(user));
     })
     .catch(err =>
       res.status(404).json({ nouserfound: "No user found with that ID" })
@@ -73,14 +74,14 @@ router.post("/:id/drowsinessdata", (req, res, next) => {
   }
 
   User.findById(req.params.id)
-    .then(result => {
+    .then(user => {
       const newDrowsinessdata = {
         correctAnswers: req.body.correctAnswers,
         wrongAnswers: req.body.wrongAnswers,
         totalTime: req.body.totalTime
       };
-      result.drowsinessdata.unshift(newDrowsinessdata);
-      result.save().then(user => res.status(201).json(user));
+      user.drowsinessdata.unshift(newDrowsinessdata);
+      user.save().then(result => res.status(201).json(result));
     })
     .catch(err =>
       res.status(404).json({ nouserfound: "No user found with that ID" })
@@ -95,14 +96,14 @@ router.post("/:id/stressdata", (req, res, next) => {
   }
 
   User.findById(req.params.id)
-    .then(result => {
+    .then(user => {
       const newStressdata = {
         emotion: req.body.emotion,
         experience: req.body.experience,
         activity: req.body.activity
       };
-      result.stressdata.unshift(newStressdata);
-      result.save().then(user => res.status(201).json(user));
+      user.stressdata.unshift(newStressdata);
+      user.save().then(result => res.status(201).json(result));
     })
     .catch(err =>
       res.status(404).json({ nouserfound: "No user found with that ID" })
@@ -117,12 +118,12 @@ router.post("/:id/heartdata", (req, res, next) => {
   }
 
   User.findById(req.params.id)
-    .then(result => {
+    .then(user => {
       const newHeartdata = {
         bpm: req.body.bpm
       };
-      result.heartdata.unshift(newHeartdata);
-      result.save().then(user => res.status(201).json(user));
+      user.heartdata.unshift(newHeartdata);
+      user.save().then(result => res.status(201).json(result));
     })
     .catch(err =>
       res.status(404).json({ nouserfound: "No user found with that ID" })

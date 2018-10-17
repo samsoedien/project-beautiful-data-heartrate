@@ -4,6 +4,11 @@ const Schema = mongoose.Schema;
 // Create Schema
 const UserSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
+  userId: {
+    type: Number,
+    required: true,
+    unique: true
+  },
   weatherdata: [
     {
       temperature: {
@@ -41,7 +46,7 @@ const UserSchema = new Schema({
         type: String
       },
       experience: {
-        type: String
+        type: Number
       },
       activity: {
         type: String
@@ -55,7 +60,8 @@ const UserSchema = new Schema({
   heartdata: [
     {
       bpm: {
-        type: Number
+        type: Number,
+        required: true
       },
       ibi: {
         type: Number
