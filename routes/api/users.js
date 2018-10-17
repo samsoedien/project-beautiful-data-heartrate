@@ -28,8 +28,8 @@ router.get("/", (req, res, next) => {
 });
 
 // GET route api/users/:id
-router.get("/:id", (req, res, next) => {
-  User.findById(req.params.id)
+router.get("/:userId", (req, res, next) => {
+  User.findOne({ userId: req.params.userId })
     .exec()
     .then(user => res.json(user))
     .catch(err =>
