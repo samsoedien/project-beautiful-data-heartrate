@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
-import HeartData from './HeartData';
+import HeartData from "./HeartData";
 
 export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mood: '',
-      activity: '',
-      experience: '',
+      emotion: "",
+      experience: "",
+      activity: "",
       errors: {}
     };
     this.onChange = this.onChange.bind(this);
@@ -25,26 +25,27 @@ export default class Form extends Component {
 
     const newUserdata = {
       emotion: this.state.emotion,
-      activity: this.state.activity,
+      experience: this.state.experience,
+      activity: this.state.activity
     };
     console.log(newUserdata);
 
     // axios post request
     axios
-      .post('/api/user/userdata', newUserdata)
+      .post("/api/users/5bc6efe6049a81f6f675e2fb/stressdata", newUserdata)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   }
 
   render() {
     const options = [
-      { label: '* Select Emotion', value: 0 },
-      { label: 'Joy', value: 'Joy' },
-      { label: 'Annoyed', value: 'Annoyed' },
-      { label: 'Fear', value: 'Fear' },
-      { label: 'Suprised', value: 'Suprised' },
-      { label: 'Bored', value: 'Bored' },
-      { label: 'Sad', value: 'Sad' },
+      { label: "* Select Emotion", value: 0 },
+      { label: "Joy", value: "Joy" },
+      { label: "Annoyed", value: "Annoyed" },
+      { label: "Fear", value: "Fear" },
+      { label: "Suprised", value: "Suprised" },
+      { label: "Bored", value: "Bored" },
+      { label: "Sad", value: "Sad" }
     ];
 
     const selectOptions = options.map(option => (
@@ -60,7 +61,6 @@ export default class Form extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="text-center pt-3">Self Assessment Report</h1>
               <h3 className="text-primary">Participant A27</h3>
-              <HeartData />
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <label className="text-left">Emotion</label>
@@ -74,20 +74,9 @@ export default class Form extends Component {
                   >
                     {selectOptions}
                   </select>
-                  <small className="form-text text-muted text-left">How were you feeling a this moment?</small>
-                </div>
-
-                <div className="form-group">
-                  <label className="text-left">Activity</label>
-                  <input
-                    type="text" className="form-control form-control-lg"
-                    placeholder="Describe your activity"
-                    name="activity"
-                    value={this.state.activity}
-                    onChange={this.onChange}
-                  />
-                  <small className="form-text text-muted text-left">Annotate what your activity was to this moment.</small>
-
+                  <small className="form-text text-muted text-left">
+                    How were you feeling a this moment?
+                  </small>
                 </div>
 
                 <div className="form-group">
@@ -104,8 +93,27 @@ export default class Form extends Component {
                     className="form-control-range custom-range"
                     min="0"
                     max="200"
-                    id="formControlRange" />
-                  <small className="form-text text-muted text-left">Set a scale how positive this stressful this experience was to you.</small>
+                    id="formControlRange"
+                  />
+                  <small className="form-text text-muted text-left">
+                    Set a scale how positive this stressful this experience was
+                    to you.
+                  </small>
+                </div>
+
+                <div className="form-group">
+                  <label className="text-left">Activity</label>
+                  <input
+                    type="text"
+                    className="form-control form-control-lg"
+                    placeholder="Describe your activity"
+                    name="activity"
+                    value={this.state.activity}
+                    onChange={this.onChange}
+                  />
+                  <small className="form-text text-muted text-left">
+                    Annotate what your activity was to this moment.
+                  </small>
                 </div>
 
                 <input type="submit" className="btn btn-info btn-block mt-4" />
@@ -113,9 +121,8 @@ export default class Form extends Component {
             </div>
           </div>
         </div>
-
       </div>
-    )
+    );
   }
 }
 
