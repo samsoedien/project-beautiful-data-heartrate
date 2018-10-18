@@ -43,7 +43,7 @@ const UserSchema = new Schema({
         type: Number,
         required: true
       },
-      totalTime: {
+      reactionTime: {
         type: Number,
         required: true
       },

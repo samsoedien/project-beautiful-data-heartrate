@@ -81,7 +81,7 @@ router.post("/:userId/drowsinessdata", (req, res, next) => {
       const newDrowsinessdata = {
         correctAnswers: req.body.correctAnswers,
         wrongAnswers: req.body.wrongAnswers,
-        totalTime: req.body.totalTime
+        reactionTime: req.body.reactionTime
       };
       user.drowsinessdata.unshift(newDrowsinessdata);
       user.save().then(result => res.status(201).json(result));
