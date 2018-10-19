@@ -8,8 +8,8 @@
   "description": "REST API Stress Data",
   "main": "server.js",
   "scripts": {
-    "start": "set PORT=4000 && node server.js",
-    "server": "set PORT=4000 && nodemon server.js --ignore client",
+    "start": "node server.js",
+    "server": "nodemon server.js --ignore client",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
