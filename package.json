@@ -5,7 +5,7 @@
     "node": "8.11.4",
     "npm": "6.4.1"
   },
-  "description": "REST API Stress Data",
+  "description": "REST API Beautiful Data",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
