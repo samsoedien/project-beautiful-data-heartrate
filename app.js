@@ -74,6 +74,7 @@ if (process.env.NODE_ENV === "production") {
     //res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
     res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
+  console.log("Serving React App...");
 }
 
 module.exports = app;
