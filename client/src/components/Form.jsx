@@ -40,12 +40,14 @@ export default class Form extends Component {
   render() {
     const options = [
       { label: "* Select Emotion", value: 0 },
-      { label: "Joy", value: "Joy" },
-      { label: "Annoyed", value: "Annoyed" },
+      { label: "Loved", value: "Loved" },
       { label: "Fear", value: "Fear" },
+      { label: "Joy", value: "Joy" },
+      { label: "Anger", value: "Anger" },
       { label: "Suprised", value: "Suprised" },
-      { label: "Bored", value: "Bored" },
-      { label: "Sad", value: "Sad" }
+      { label: "Embarassed", value: "Embarassed" },
+      { label: "Disgust", value: "Disgust" },
+      { label: "Sadness", value: "Sadness" }
     ];
 
     const selectOptions = options.map(option => (
@@ -81,8 +83,8 @@ export default class Form extends Component {
                 <div className="form-group">
                   <label forhtml="formControlRange">Experience</label>
                   <div>
-                    <span className="float-left text-danger">Negative</span>
-                    <span className="float-right text-success">Positive</span>
+                    <span className="float-left text-success">0</span>
+                    <span className="float-right text-success">10</span>
                   </div>
                   <input
                     type="range"
@@ -91,12 +93,11 @@ export default class Form extends Component {
                     onChange={this.onChange}
                     className="form-control-range custom-range"
                     min="0"
-                    max="200"
+                    max="10"
                     id="formControlRange"
                   />
                   <small className="form-text text-muted text-left">
-                    Set a scale how positive this stressful this experience was
-                    to you.
+                    Set a scale related to the experience of your emotion.
                   </small>
                 </div>
 
@@ -105,7 +106,7 @@ export default class Form extends Component {
                   <input
                     type="text"
                     className="form-control form-control-lg"
-                    placeholder="Describe your activity"
+                    placeholder="Describe what you are doing"
                     name="activity"
                     value={this.state.activity}
                     onChange={this.onChange}
