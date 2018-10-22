@@ -32,7 +32,7 @@ export default class Form extends Component {
 
     // axios post request
     axios
-      .post("/api/users/5bc6efe6049a81f6f675e2fb/stressdata", newUserdata)
+      .post("/api/users/1/stressdata", newUserdata)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   }
@@ -58,9 +58,8 @@ export default class Form extends Component {
       <div className="form-component">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-6 m-auto">
               <h1 className="text-center pt-3">Self Assessment Report</h1>
-              <h3 className="text-primary">Participant A27</h3>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <label className="text-left">Emotion</label>

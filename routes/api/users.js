@@ -92,7 +92,7 @@ router.post("/:userId/drowsinessdata", (req, res, next) => {
 });
 
 // POST route api/stressdata
-router.post("/:userId//stressdata", (req, res, next) => {
+router.post("/:userId/stressdata", (req, res, next) => {
   const { errors, isValid } = validateUserdataInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
