@@ -34,11 +34,6 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item active pr-1">
-              <Link to="/visualisation-stress" className="nav-link">
-                Stress Visualisation
-              </Link>
-            </li>
-            <li className="nav-item active pr-1">
               <Link to="/data-generator" className="nav-link">
                 Data Generator
               </Link>

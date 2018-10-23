@@ -96,7 +96,7 @@ export default class Form extends Component {
                     id="formControlRange"
                   />
                   <small className="form-text text-muted text-left">
-                    Set a scale related to the experience of your emotion.
+                    Set a scale related to the intensity of your emotion.
                   </small>
                 </div>
 
