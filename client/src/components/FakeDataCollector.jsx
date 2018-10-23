@@ -38,9 +38,6 @@ class FakeDataCollector extends Component {
   render() {
     return (
       <div className="p-3">
-        <div>
-          <h5 className="text-muted">Generating Data...</h5>
-        </div>
         <div>Measured BPM: {this.state.bpm}</div>
       </div>
     );

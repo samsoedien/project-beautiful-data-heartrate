@@ -22,23 +22,23 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
+            <li className="nav-item active pr-1">
               <Link to="/user-form" className="nav-link">
                 User Form
                 <span className="sr-only">(current)</span>
               </Link>
             </li>
-            <li className="nav-item active">
+            <li className="nav-item active pr-1">
               <Link to="/visualisation-bpm" className="nav-link">
                 BPM Visualisation
               </Link>
             </li>
-            <li className="nav-item active">
+            <li className="nav-item active pr-1">
               <Link to="/visualisation-stress" className="nav-link">
                 Stress Visualisation
               </Link>
             </li>
-            <li className="nav-item active">
+            <li className="nav-item active pr-1">
               <Link to="/data-generator" className="nav-link">
                 Data Generator
               </Link>

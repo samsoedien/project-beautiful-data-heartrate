@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import vegaEmbed from "vega-embed";
-import LINE_SPEC from "./line.vl.json";
 import BAR_SPEC from "./bar.vl.json";
 
 class StressVisualisation extends Component {

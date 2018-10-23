@@ -14,14 +14,14 @@
           "encoding": {
             "x": {
               "timeUnit": "hoursminutesseconds",
-              "field": "stressdata.emotion",
-              "type": "ordinal",
+              "field": "stressdata[0].experience",
+              "type": "quantitative",
               "axis": {
-                "title": "Timestamp"
+                "title": "Emotion"
               }
             },
             "y": {
-              "field": "heartdata.bpm",
+              "field": "heartdata[0].bpm",
               "type": "quantitative"
             }
           }
