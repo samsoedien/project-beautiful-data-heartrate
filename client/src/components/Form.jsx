@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-import HeartData from "./HeartData";
+//import HeartData from "./HeartData";
 
 export default class Form extends Component {
   constructor(props) {

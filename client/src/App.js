@@ -5,9 +5,9 @@ import "./App.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
-import Visualisation from "./components/Visualisation";
+import StressVisualisation from "./components/StressVisualisation";
+import BPMVisualisation from "./components/BPMVisualisation";
 import FakeDataCollector from "./components/FakeDataCollector";
-// import LineChart from './LineChart';
 
 class App extends Component {
   render() {
@@ -17,7 +17,12 @@ class App extends Component {
           <Navbar />
           <Route exact path="/" component={Home} />
           <Route exact path="/user-form" component={Form} />
-          <Route exact path="/visualisation" component={Visualisation} />
+          <Route exact path="/visualisation-bpm" component={BPMVisualisation} />
+          <Route
+            exact
+            path="/visualisation-stress"
+            component={StressVisualisation}
+          />
           <Route exact path="/data-generator" component={FakeDataCollector} />
         </div>
       </Router>

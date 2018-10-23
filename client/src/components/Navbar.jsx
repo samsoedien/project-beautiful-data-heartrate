@@ -29,8 +29,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item active">
-              <Link to="/visualisation" className="nav-link">
-                Visualisation
+              <Link to="/visualisation-bpm" className="nav-link">
+                BPM Visualisation
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link to="/visualisation-stress" className="nav-link">
+                Stress Visualisation
               </Link>
             </li>
             <li className="nav-item active">

@@ -6,7 +6,7 @@
   "layer": [
     {
       "data": {
-        "url": "http://beautiful-data.herokuapp.com/api/heartdata"
+        "url": "http://beautiful-data.herokuapp.com/api/users/1"
       },
       "layer": [
         {
@@ -14,14 +14,14 @@
           "encoding": {
             "x": {
               "timeUnit": "hoursminutesseconds",
-              "field": "date",
+              "field": "stressdata.emotion",
               "type": "ordinal",
               "axis": {
                 "title": "Timestamp"
               }
             },
             "y": {
-              "field": "bpm",
+              "field": "heartdata.bpm",
               "type": "quantitative"
             }
           }
