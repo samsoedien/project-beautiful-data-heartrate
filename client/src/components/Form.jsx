@@ -34,6 +34,7 @@ export default class Form extends Component {
       .post("/api/users/1/stressdata", newUserdata)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
+    window.location.reload();
   }
 
   render() {

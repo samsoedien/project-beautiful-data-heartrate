@@ -33,11 +33,6 @@ const Navbar = () => {
                 BPM Visualisation
               </Link>
             </li>
-            <li className="nav-item active pr-1">
-              <Link to="/data-generator" className="nav-link">
-                Data Generator
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
