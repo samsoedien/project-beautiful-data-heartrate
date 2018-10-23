@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "description": "visualisation of sleep pattern",
+  "layer": [
+    {
+      "data": {
+        "url": "http://beautiful-data.herokuapp.com/api/heartdata"
+      },
+      "layer": [
+        {
+          "mark": "line",
+          "encoding": {
+            "x": {
+              "timeUnit": "hoursminutesseconds",
+              "field": "date",
+              "type": "ordinal",
+              "axis": {
+                "title": "Timestamp"
+              }
+            },
+            "y": {
+              "field": "bpm",
+              "type": "quantitative"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "ThresholdValue": 100,
+            "Threshold": "High heartrate, when in rest"
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": "rule",
+          "encoding": {
+            "y": {
+              "field": "ThresholdValue",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": -2,
+            "dy": -4
+          },
+          "encoding": {
+            "x": {
+              "value": "width"
+            },
+            "y": {
+              "field": "ThresholdValue",
+              "type": "quantitative",
+              "axis": {
+                "title": "BPM"
+              }
+            },
+            "text": {
+              "field": "Threshold",
+              "type": "ordinal"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
